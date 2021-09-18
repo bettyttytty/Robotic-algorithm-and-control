@@ -1,0 +1,27 @@
+syntax = 'proto3';
+
+package aruco;
+
+message Empty {}
+
+message HelloReply {
+	uint64 t = 1;
+}
+
+message Vec3f {
+	double x = 1;
+	double y = 2;
+	double z = 3;
+}
+
+message Coordinate{
+	Vec3f r = 1;
+	Vec3f t = 2;
+	double st = 3;
+}
+
+service Greeter {
+	rpc SayHello(Empty) returns (HelloReply) {}
+	rpc Ask(Empty) returns (Coordinate) {}
+	rpc Goal(Empty) returns (Coordinate) {}
+}
